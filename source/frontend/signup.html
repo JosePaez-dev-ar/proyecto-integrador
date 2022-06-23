@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    /* Campos de entrada con ancho completo */
+    
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+    /* Agregue  color de fondo cuando las entradas tienen el foco */
+    
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+    /* Establecer un estilo para todos los botones */
+    
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    
+    button:hover {
+        opacity: 1;
+    }
+    /* Estilos adicionales para el botón cancelar */
+    
+    .btn-cancelar {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+    /* Hace flotar los botones cancelar y registrarse,  agrega un ancho igual */
+    
+    .btn-cancelar,
+    .btn-registrarse {
+        float: left;
+        width: 50%;
+    }
+    /* Agregar padding a los elementos del contenedor */
+    
+    .contenedor {
+        padding: 16px;
+    }
+    /* El Modal (fondo)  */
+    
+    .modal {
+        /* Oculto por defecto */
+        display: none;
+        /* Permanezca en su lugar */
+        position: fixed;
+        /* Superponemos en la parte superior */
+        z-index: 1;
+        left: 0;
+        top: 0;
+        /* Ancho completo */
+        width: 100%;
+        /* Altura completa */
+        height: 100%;
+        /* Habilite el desplazamiento si es necesario */
+        overflow: auto;
+        /* Color de fondo */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+    /* Contenido modal/caja */
+    
+    .contenido-modal {
+        background-color: #fefefe;
+        /* 5% desde arriba, 15% desde abajo y centrado */
+        margin: 5% auto 15% auto;
+        border: 1px solid #888;
+        /* Podría ser más o menos, dependiendo del tamaño de la pantalla */
+        width: 80%;
+    }
+    /* Estilo a la regla horizontal */
+    
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+    /* Botón Cerrar (x) */
+    
+    .btn-cerrar {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+    
+    .btn-cerrar:hover,
+    .btn-cerrar:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+    /* Distanciar flotantes */
+    
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    /* Cambiar estilos para los botones cancelar y registrarse en pantallas extra pequeñas */
+    
+    @media screen and (max-width: 300px) {
+        .btn-cancelar,
+        .btn-registrarse {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+
+    <h2>Formulario de registro - Modal</h2>
+
+    <button onclick="document.getElementById('seccion-modal').style.display='block'" style="width:auto;">Registrase</button>
+
+    <div id="seccion-modal" class="modal">
+        <span onclick="document.getElementById('seccion-modal').style.display='none'" class="btn-cerrar" title="Cerrar">&times;</span>
+        <form class="contenido-modal" action="action_page_signup.html" method="get">
+            <div class="contenedor">
+                <h1>Registrarse</h1>
+                <p>Por favor complete este formulario para crear una cuenta.</p>
+                <hr>
+                <label for="txt-email"><b>E-mail*</b></label>
+                <input type="text" placeholder="Ingresá tu dirección de E-mail" name="email" id="txt-email" required>
+
+                <label for="txt-password"><b>Contraseña *</b></label>
+                <input type="password" placeholder="Ingresá tu contraseña" name="password" id="txt-password" required>
+
+                <label for="txt-password-repeat"><b>Confirmá tu contraseña</b></label>
+                <input type="password" placeholder="Ingresá nuevamente tu contraseña" name="passwordrepeat" id="txt-password-repeat" required>
+
+                <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Recordarme
+      </label>
+
+                <p>Al registrarte estás aceptando
+                    <a href="#" style="color:dodgerblue">términos y condiciones</a>.</p>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('seccion-modal').style.display='none'" class="btn-cancelar ">Cancelar</button>
+                    <button type="submit" class="btn-registrarse">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Obtenemos el modal
+        var modal = document.getElementById('seccion-modal');
+
+        // Cuando el usuario haga clic en cualquier lugar fuera del modal, lo cierra
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

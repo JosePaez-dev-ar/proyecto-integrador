@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Campos de entrada con ancho completo */
+        
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        /* Establecer un estilo para todos los botones */
+        
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Estilos adicionales para el botón cancelar */
+        
+        .btn-cancelar {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+        /* Centrar el titulo y colocar el botón de cerrar */
+        
+        .contenedor-titulo {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        
+        .contenedor {
+            padding: 16px;
+        }
+        
+        span.spn-password {
+            float: right;
+            padding-top: 16px;
+        }
+        /* El Modal (fondo) */
+        
+        .modal {
+            /* Oculto por defecto */
+            display: none;
+            /* Permanezca en su lugar */
+            position: fixed;
+            /* Superponemos en la parte superior */
+            z-index: 1;
+            left: 0;
+            top: 0;
+            /* Ancho completo */
+            width: 100%;
+            /* Altura completa */
+            height: 100%;
+            /* Habilite el desplazamiento si es necesario */
+            overflow: auto;
+            /* Color de fondo alternativo*/
+            background-color: rgb(0, 0, 0);
+            /* Color de fondo negro con opacidad */
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        /* Contenido modal/caja */
+        
+        .contenido-modal {
+            background-color: #fefefe;
+            /* 5% desde arriba, 15% desde abajo y centrado */
+            margin: 5% auto 15% auto;
+            border: 1px solid #888;
+            /* Podría ser más o menos, dependiendo del tamaño de la pantalla */
+            width: 80%;
+        }
+        /* Botón Cerrar (x) */
+        
+        .btn-cerrar {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+        .btn-cerrar:hover,
+        .btn-cerrar:focus {
+            color: red;
+            cursor: pointer;
+        }
+        /* Agregar animación de zoom */
+        
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+        
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+        /* Cambia los estilos para span y el botón de cancelar en pantallas en extra pequeñas*/
+        
+        @media screen and (max-width: 300px) {
+            span.spn-password {
+                display: block;
+                float: none;
+            }
+            .btn-cancelar {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script src="assets/js/funciones.js">
+    </script>
+</head>
+
+<body>
+
+    <h2>Formulario de Inicio de Sesión - Modal</h2>
+
+    <button onclick="document.getElementById('seccion-modal').style.display='block'" style="width:auto;">Inicia sesión</button>
+
+    <div id="seccion-modal" class="modal">
+
+        <form class="contenido-modal animate" action="action_page_login.html" method="get">
+            <div class="contenedor-titulo">
+                <span onclick="document.getElementById('seccion-modal').style.display='none'" class="btn-cerrar" title="Cerrar">&times;</span>
+                <h3>Iniciar sesión</h3>
+            </div>
+
+            <div class="contenedor">
+                <label for="txt-username"><b>Cuit/Cuil *</b></label>
+                <input type="text" placeholder="Ingresá tu Cuit/Cuil" name="username" id="txt-username" required>
+
+                <label for="txt-password"><b>Contraseña *</b></label>
+                <input type="password" placeholder="Ingresá tu contraseña" name="password" id="txt-password" required>
+
+                <button type="submit">Ingresar</button>
+                <label>
+        <input type="checkbox" checked="checked" name="remember"> Recordarme</label>
+            </div>
+
+            <div class="contenedor" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('seccion-modal').style.display='none'" class="btn-cancelar">Cancelar</button>
+                <span class="spn-password"><a href="#">¿Olvidaste tu contraseña?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Obtenemos el modal
+        var modal = document.getElementById('seccion-modal');
+
+        // Cuando el usuario haga clic en cualquier lugar fuera del modal, lo cierra
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
