@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Page Login</title>
+
+    <script>
+        function getQueryString(key) {
+            const querystring = window.location.search;
+            const params = new URLSearchParams(querystring);
+
+            if (params != null) {
+                return params.get(key)
+            }
+            return '';
+        }
+
+        function MostarDatos() {
+            let email = getQueryString('email');
+            document.getElementById("txt-email").value = email;
+
+            let password = getQueryString('password');
+            document.getElementById("txt-password").value = password;
+
+            let passwordrepeat = getQueryString('passwordrepeat');
+            document.getElementById("txt-password-repeat").value = passwordrepeat;
+
+            let remember = getQueryString('remember');
+            document.getElementById("txt-remember").checked = remember;
+        }
+    </script>
+</head>
+
+<body onload="MostarDatos()">
+    <label for="txt-email">E-mail
+    <input type="text" id="txt-email" readonly>
+    </label>
+
+    <label for="txt-password">Contraseña
+    <input type="text" id="txt-password" readonly>
+    </label>
+
+    <label for="txt-password-repeat">Confirmación de contraseña
+        <input type="text" id="txt-password-repeat" readonly>
+        </label>
+
+    <label for="txt-remember">Recordarme
+        <input type="checkbox" id="txt-remember" readonly>
+        </label>
+
+</body>
+
+</html>

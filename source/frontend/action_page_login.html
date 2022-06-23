@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Page Login</title>
+
+    <script>
+        function getQueryString(key) {
+            var params = window.location.href.split('?')[1];
+            if (params) {
+                for (var i = 0; i < params.split('&').length; i++) {
+                    if (params.split('&')[i].split('=')[0] == key) {
+                        return params.split('&')[i].split('=')[1];
+                    }
+                }
+            }
+            return '';
+        }
+
+        function getQueryString2(key) {
+            const querystring = window.location.search;
+            const params2 = new URLSearchParams(querystring);
+
+            if (params2 != null) {
+                return params2.get(key)
+            }
+            return '';
+        }
+
+        function MostarDatos() {
+            let username = getQueryString2('username');
+            document.getElementById("input-username").value = username;
+
+            let password = getQueryString2('password');
+            document.getElementById("input-password").value = password;
+
+            let remember = getQueryString2('remember');
+            document.getElementById("input-remember").checked = remember;
+        }
+    </script>
+</head>
+
+<body onload="MostarDatos()">
+    <label for="input-username">Cuit/Cuil
+    <input type="text" id="input-username" readonly>
+    </label>
+
+    <label for="input-password">Contraseña
+    <input type="text" id="input-password" readonly>
+    </label>
+
+    <label for="input-remember">Recordarme
+        <input type="checkbox" id="input-remember" readonly>
+        </label>
+
+</body>
+
+</html>
