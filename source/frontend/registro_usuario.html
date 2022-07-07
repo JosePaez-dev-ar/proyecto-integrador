@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<script>
+    var usuarios = []
+
+    class Usuario {
+        constructor(apellido, nombre, email, password) {
+            this.apellido = apellido;
+            this.nombre = nombre;
+            this.email = email;
+            this.password = password;
+        }
+    }
+</script>
+
+<body>
+    <h2>Formulario de registro</h2>
+
+    <div>
+        <form id="frm-registro">
+
+            <label for="txt-apellido"><b>Apellido*</b></label>
+            <input type="text" placeholder="Ingresá tu apellido" id="txt-apellido" required />
+            <br>
+            <label for="txt-nombre"><b>Nombre*</b></label>
+            <input type="text" placeholder="Ingresá tu nombre" id="txt-nombre" required />
+            <br>
+            <label for="txt-email"><b>E-mail*</b></label>
+            <input type="text" placeholder="Ingresá tu dirección de E-mail" id="txt-email" required />
+            <br>
+            <label for="txt-password"><b>Contraseña *</b></label>
+            <input type="password" placeholder="Ingresá tu contraseña" id="txt-password" required />
+            <br>
+            <label for="txt-password-repeat"><b>Confirmá tu contraseña</b></label>
+            <input type="password" placeholder="Ingresá nuevamente tu contraseña" id="txt-password-repeat" required />
+            <br>
+
+            <input type="button" value="Cancelar">
+            <input type="submit" value="Registrar">
+            <!-- <input type="reset" value="Limpiar"> -->
+        </form>
+    </div>
+
+    <div>
+        <h3>Listado de Usuarios</h3>
+        <table class="minimalistBlack">
+            <thead>
+                <td>Apellido</td>
+                <td>Nombre</td>
+                <td>Email</td>
+                <td>[Acción]</td>
+            </thead>
+            <tbody id="tbl-body">
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+
+<script>
+    document
+        .getElementById("frm-registro")
+        .addEventListener("submit", function(e) {
+            // Anular el comportamiento predeterminado del formulario
+            e.preventDefault()
+
+            registrarUsuario()
+        });
+</script>
+
+<script src="assets/js/app_registro_usuario.js"></script>
+
+</html>
