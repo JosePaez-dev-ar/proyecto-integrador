@@ -1,0 +1,139 @@
+/* PAGINA COMPLETA */
+
+#container-envoltura-calendario * {
+    font-family: arial, sans-serif;
+}
+
+.invisible {
+    display: none !important;
+}
+
+
+/* CONTENEDOR */
+
+#container-envoltura-calendario {
+    max-width: 600px;
+}
+
+
+/* SELECTOR DE PERIODO */
+
+#container-periodo {
+    display: flex;
+}
+
+#select-mes,
+#select-año {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: 0;
+}
+
+
+/* CALENDARIO */
+
+#table-calendario {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-calendario tr.head td {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #383d41;
+    background: #e2e3e5;
+    padding: 15px;
+    text-align: center;
+}
+
+#table-calendario tr.dia td {
+    border: 1px solid #ddd;
+    width: 14.28%;
+    padding: 15px 5px;
+    vertical-align: top;
+}
+
+#table-calendario tr.dia td:hover {
+    background: #fff9e4;
+    cursor: pointer;
+}
+
+#table-calendario tr td.vacio {
+    background: #f5f5f5;
+}
+
+#table-calendario tr td.hoy {
+    background: #d1ecf1;
+}
+
+#table-calendario .datos {
+    font-size: 1.2em;
+    color: #999;
+}
+
+#table-calendario .evento {
+    margin-top: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    overflow: hidden;
+    color: #ff5d5d;
+}
+
+
+/* AGREGAR/MODIFICAR EVENTO */
+
+#form-calendario {
+    padding: 15px;
+    margin-top: 20px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+#form-calendario h1 {
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+#container-fecha {
+    color: #555;
+    margin: 10px 0;
+}
+
+#form-calendario textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    min-height: 100px;
+}
+
+#form-calendario input[type=button],
+#form-calendario input[type=submit] {
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.2em;
+    border: 0;
+    color: #fff;
+}
+
+#form-calendario #button-cerrar {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#form-calendario #button-eliminar {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#form-calendario #button-guardar {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
