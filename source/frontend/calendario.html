@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendario de Eventos</title>
+    <link href="./assets/css/calendario.css" rel="stylesheet" />
+    <script src="./assets/js/calendario.js"></script>
+</head>
+
+<body>
+    <div id="container-envoltura-calendario">
+        <!-- SELECTOR DE PERIODO -->
+        <div id="container-periodo">
+            <select id="select-mes"></select>
+            <select id="select-año"></select>
+        </div>
+
+        <!-- CALENDARIO -->
+        <div id="container-calendario"></div>
+
+        <!-- EVENTOS DEL FORMULARIO  -->
+        <form id="form-calendario">
+            <h1 id="header-encabezado"></h1>
+            <div id="container-fecha"></div>
+            <textarea id="text-detalle" required></textarea>
+            <input id="button-cerrar" type="button" value="Cerrar" />
+            <input id="button-eliminar" type="button" value="Eliminar" />
+            <input id="button-guardar" type="submit" value="Guardar" />
+        </form>
+    </div>
+
+</body>
+
+</html>
